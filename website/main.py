@@ -1,4 +1,7 @@
 import webapp2
+from google.appengine.ext import ndb
+
+
 import jinja2
 import os
 
@@ -20,6 +23,19 @@ class IntroPage(webapp2.RequestHandler):
         template = jinja_env.get_template('/templates/index.html')
 
 
+class GiveHelpPage(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        template = jinja_env.get_template("/templates/givehelp.html")
+
+        self.response.write(template.render(template_vars))
+
+    def post(self):
+        template = jinja_env.get_template('/templates/givehelp.html')
+
+
+
+
 
 
 
@@ -29,5 +45,7 @@ class IntroPage(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/', IntroPage)
+    ('/', IntroPage),
+    ('/givehelp', GiveHelpPage),
+
 ], debug=True)
