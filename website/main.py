@@ -17,18 +17,18 @@ class IntroPage(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         template = jinja_env.get_template("/templates/index.html")
 
-        self.response.write(template.render(template_vars))
+        self.response.write(template.render())
 
     def post(self):
-        template = jinja_env.get_template('/templates/index.html')
+        template = jinja_env.get_template('./templates/index.html')
 
 
 class GiveHelpPage(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
-        template = jinja_env.get_template("/templates/givehelp.html")
+        template = jinja_env.get_template("./templates/givehelp.html")
 
-        self.response.write(template.render(template_vars))
+        self.response.write(template.render())
 
     def post(self):
         template = jinja_env.get_template('/templates/givehelp.html')
