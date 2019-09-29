@@ -20,11 +20,18 @@ def sms_ahoy_reply():
 
 Bot = VentUser("Bot", "+19142523220", "AC499820668088575e6867dc060ba42ec9", "03e14d687eb5ce09de59772e06c292ed")
 runner = Twilio(Bot)
+def sizeof(name):
+    if(name== 'Ammar'):
+        return '-.1 inches'
+    else:
+        return 'big enough'
+
+sizeof("Ammar")
+
 
 while True:
     if runner.giveLastestmsg().body == "penis":
         print(runner.giveLastestmsg().body)
-        break
 
 if __name__ == "__main__":
     app.run(debug=True)
