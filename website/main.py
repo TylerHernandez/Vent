@@ -1,43 +1,41 @@
 import webapp2
 from google.appengine.ext import ndb
-
-
+from models import Event
 import jinja2
 import os
 
 
-jinja_env = jinja2.Environment(
+jinja_enviroment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
 
 class IntroPage(webapp2.RequestHandler):
+
+
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
-        template = jinja_env.get_template("/templates/index.html")
+        template = jinja_enviroment.get_template("/templates/index.html")
 
         self.response.write(template.render())
 
     def post(self):
-        template = jinja_env.get_template('./templates/index.html')
+        results_template = jinja_enviroment.get_template('./templates/index.html')
+        event_post ={
 
+        "doc_name" : self.request.get("doc_name"),
+        "field_of_study" : self.request.get("field_of_study"),
+        "doctor_email" : self.request.get("doctor_email"),
+        "phone_number" : self.request.get("phone_number")
+        }
 
-        self.response.write(template.render())
-
-    def post(self):
-        template = jinja_env.get_template('/templates/givehelp.html')
-
-
-
-
-
-
-
-
-
-
-
+        # event_post = Event(doc_name=doc_name,
+        #          doctor_email=doctor_email,
+        #          field_of_study=field_of_study,
+        #          phone_number=phone_number)
+        event_post.put()
+        self.response.write(results_template.render(event_post)) 
 
 app = webapp2.WSGIApplication([
     ('/', IntroPage),

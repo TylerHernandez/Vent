@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/style.css">
     <meta charset="utf-8">
-    <title>Fuck</title>
+    <title>Vent</title>
   </head>
   <body>
+    <h1>Vent</h1>
     <a>
     <button class = "button" type="button" name="button"><span>Need Help?</span></button>
     <button class = "button" type="button" onclick="openForm()" name="button"><span>Want To Help?</span></button>
@@ -13,16 +15,23 @@
   <form action="/action_page.php" class="form-container">
     <h1>Login</h1>
 
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Your First Name" name="doc_name" required>
+
+    <label for="fos"><b>Field of Study</b></label>
+    <input type="text" placeholder="Enter Your Last Name" name="field_of_study" required>
+
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <input type="text" placeholder="Enter Email" name="doctor_email" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label for="num"><b>Phone Number</b></label>
+    <input type="text" placeholder="Enter Your Phone" name="phone_number" required>
 
-    <button type="submit" class="btn">Login</button>
+    <button type="submit" class="btn">Submit</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+
   </form>
-  
+
 </div>
     <a>
   </body>
