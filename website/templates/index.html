@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/style.css">
     <meta charset="utf-8">
     <title>Vent</title>
   </head>
   <body>
+</div>
     <h1>Vent</h1>
-    <a>
-    <button class = "button" type="button" name="button"><span>Need Help?</span></button>
+    <p>Talk to help anonymously though SMS</p>
+    <button class = "button" type="button" onclick="location.href = '/number';" name="button"><span>Need Help?</span></button>
     <button class = "button" type="button" onclick="openForm()" name="button"><span>Want To Help?</span></button>
     <div class="form-popup" id="myForm">
+      <form2 action="/action_page.php" class="form-container">
+        <h1>Text This Number:</h1>
+        <p>We're here to help<p>
+      </form2>
   <form action="/action_page.php" class="form-container">
     <h1>Login</h1>
 
@@ -27,15 +32,11 @@
     <label for="num"><b>Phone Number</b></label>
     <input type="text" placeholder="Enter Your Phone" name="phone_number" required>
 
-    <button type="submit" class="btn">Submit</button>
+    <button onclick="location.href = '/submit';" type="submit"  class="btn">Submit</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-
   </form>
 
-</div>
-    <a>
-  </body>
-</html>
+
 <script type="text/javascript">
 function openForm() {
   document.getElementById("myForm").style.display = "block";
@@ -45,3 +46,7 @@ function closeForm() {
 }
 
 </script>
+</script>
+
+</body>
+</html>

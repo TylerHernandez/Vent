@@ -10,9 +10,21 @@ jinja_enviroment = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
+class Submit(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        template = jinja_enviroment.get_template("/templates/submit.html")
+
+        self.response.write(template.render())
+
+class Number(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        template = jinja_enviroment.get_template("/templates/number.html")
+
+        self.response.write(template.render())
 
 class IntroPage(webapp2.RequestHandler):
-
 
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
@@ -35,9 +47,11 @@ class IntroPage(webapp2.RequestHandler):
         #          field_of_study=field_of_study,
         #          phone_number=phone_number)
         event_post.put()
-        self.response.write(results_template.render(event_post)) 
+        self.response.write(results_template.render(event_post))
 
 app = webapp2.WSGIApplication([
     ('/', IntroPage),
+    ('/submit', Submit),
+    ('/number', Number),
 
 ], debug=True)
