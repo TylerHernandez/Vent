@@ -6,9 +6,10 @@ class Twilio:
         self.auth_token = user.auth_token
         self.client = Client(self.account_sid, self.auth_token)
 
-    def iterateRecords(self):
-        for sms in self.client.messages.list():
-            print(sms.to)
+    def giveLastestmsg(self):
+        messages = self.client.messages.list(limit=20)
+        return messages[0]
+
 
     def createMessage(self, toWho, whatURL):
         call = self.client.messages.create(
