@@ -10,7 +10,6 @@ class Twilio:
         messages = self.client.messages.list(limit=20)
         return messages[0]
 
-
     def createMessage(self, toWho, whatURL):
         call = self.client.messages.create(
         to=toWho,
@@ -18,10 +17,6 @@ class Twilio:
         body=whatURL
         )
         print(call.sid)
-
-    #def replyToMuliple(self, toWho, whatURL):
-
-
 
 class VentUser:
 
