@@ -10,6 +10,10 @@ class Twilio:
         messages = self.client.messages.list(limit=20)
         return messages[0]
 
+    def giveAllmsg(self):
+        messages = self.client.messages.list()
+        return messages
+
     def createMessage(self, toWho, whatURL):
         call = self.client.messages.create(
         to=toWho,
@@ -20,20 +24,19 @@ class Twilio:
 
 class VentUser:
 
-    def __init__(self, name, phoneNumber, account_sid, auth_token):
-        self.name = name
+    def __init__(self, phoneNumber, account_sid, auth_token=0):
         self.account_sid = account_sid
         self.auth_token = auth_token
         self.phoneNumber = phoneNumber
         self.diseases = []
         self.doctors = []
 
-    def __str__(self ):
-        str = self.name + " " + self.phoneNumber + "\ndiseases: "
-        if len(diseases) > 0:
-            for di in diseases:
-                str += i
-        if len(doctors) > 0:
+    def __str__(self):
+        str = self.phoneNumber + "\ndiseases: "
+        if len(self.diseases) > 0:
+            for di in self.diseases:
+                str += di
+        if len(self.doctors) > 0:
             str += "\nDoctors: "
             for doc in doctors:
                 str += doc
